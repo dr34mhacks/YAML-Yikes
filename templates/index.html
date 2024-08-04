@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAML Deserialization Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>YAML Deserialization Demo</h1>
+        <form method="post">
+            <textarea name="yaml_data" placeholder="Enter YAML data here..."></textarea>
+            <div class="buttons">
+                <button type="submit">Deserialize</button>
+                <a href="{{ url_for('advanced') }}" class="advanced-button">Advanced Scenario</a>
+            </div>
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="messages">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
